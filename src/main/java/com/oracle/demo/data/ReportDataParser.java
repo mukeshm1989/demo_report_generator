@@ -8,7 +8,7 @@ import static com.oracle.demo.utils.Constants.NEW_LINE_DELIMITER;
 
 // Class to parse data
 public class ReportDataParser {
-    //ReportDataParser(){}
+    ReportDataParser(){}
     public static <T> List<T> parse(String input, RecordMapper<T> recordMapper) {
 
         List<T> records = new ArrayList<>();
