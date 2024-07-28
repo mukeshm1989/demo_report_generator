@@ -1,6 +1,5 @@
 package com.oracle.demo;
 
-import com.oracle.demo.data.RecordMapper;
 import com.oracle.demo.data.ReportDataParser;
 import com.oracle.demo.data.ReportData;
 import com.oracle.demo.service.DisplayReportImpl;
@@ -11,6 +10,8 @@ import com.oracle.demo.service.ReportServiceImpl;
 
 import java.util.List;
 
+import static com.oracle.demo.utils.Constants.PATH;
+
 public class ReportGenerator {
 
     public static void main(String[] args) {
@@ -18,12 +19,9 @@ public class ReportGenerator {
         // main is used as orchestrator
 
         ReadReportData readInput = new ReadReportDataImpl();
-        final String inputData = readInput.readInputFromFile();
+        final String inputData = readInput.readInputFromFile(PATH);
 
-        RecordMapper<ReportData> recordMapper = column ->
-                new ReportData(column[0], column[1], column[2], column[3], column[4], column[5]);
-
-        final List<ReportData> dataList = ReportDataParser.parse(inputData,recordMapper);
+        final List<ReportData> dataList = ReportDataParser.parse(inputData, ReportData::getReportData);
         ReportService reportService = new ReportServiceImpl(dataList);
 
         DisplayReportImpl displayReport = new DisplayReportImpl(reportService);

@@ -8,10 +8,9 @@ import java.nio.file.Path;
 public class ReadReportDataImpl implements ReadReportData {
 
     @Override
-    public String readInputFromFile() {
-        // readString can throw DirectMemoryBuffer exception
+    public String readInputFromFile(String path) {
         try {
-            return Files.readString(Path.of("src/main/resources/input.txt"));
+            return Files.readString(Path.of(path));
         } catch (IOException e) {
             // We also create message properties file and message response body for custom message
             throw new CustomException("File not found");
