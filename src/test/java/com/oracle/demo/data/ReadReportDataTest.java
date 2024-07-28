@@ -4,6 +4,8 @@ import com.oracle.demo.service.ReadReportDataImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
+
+import static com.oracle.demo.utils.Constants.PATH;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
     class ReadReportDataTest {
@@ -11,19 +13,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
     @Test
     void testReadInputFromFileSuccess() {
         ReadReportDataImpl fileReader = new ReadReportDataImpl();
-        String result = fileReader.readInputFromFile();
+        String result = fileReader.readInputFromFile(PATH);
         Assertions.assertTrue(StringUtils.isNotBlank(result));
     }
 
     @Test
     void testReadInputFromFileFailure() {
-        ReadReportDataImpl fileReader = new ReadReportDataImpl() {
-            @Override
-            public String readInputFromFile() {
-                throw new CustomException("File not found");
-            }
-        };
-        CustomException thrown = assertThrows(CustomException.class, fileReader::readInputFromFile);
+        String path = "";
+        ReadReportDataImpl fileReader = new ReadReportDataImpl();
+        CustomException thrown = assertThrows(CustomException.class, () -> {
+            fileReader.readInputFromFile(path);
+        });
         Assertions.assertEquals("File not found", thrown.getMessage());
     }
 }
