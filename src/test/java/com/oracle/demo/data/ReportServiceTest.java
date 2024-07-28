@@ -29,7 +29,7 @@ class ReportServiceTest {
     }
 
     @Test
-    void testCountUniqueCustomerIdsByGeozone() {
+    void testCountUniqueCustomerIdsByGeoZone() {
         List<ReportData> records = List.of(
                 new ReportData("2343225", "2345", "us_east", "RedTeam", "ProjectApple", "3445s"),
                 new ReportData("1223456", "2345", "us_west", "BlueTeam", "ProjectBanana", "2211s")
@@ -40,7 +40,7 @@ class ReportServiceTest {
         assertEquals(1, result.get("us_west"));
     }
     @Test
-    void testAverageBuildDurationByGeozone() {
+    void testAverageBuildDurationByGeoZone() {
         List<ReportData> records = List.of(
                 new ReportData("2343225", "2345", "us_east", "RedTeam", "ProjectApple", "3445s"),
                 new ReportData("1223456", "2345", "us_west", "BlueTeam", "ProjectBanana", "2211s")
@@ -51,7 +51,7 @@ class ReportServiceTest {
         assertEquals(2211.0, result.get("us_west"));
     }
     @Test
-    void testListUniqueCustomerIdsByGeozone() {
+    void testListUniqueCustomerIdsByGeoZone() {
         List<ReportData> records = List.of(
                 new ReportData("2343225", "2345", "us_east", "RedTeam", "ProjectApple", "3445s"),
                 new ReportData("1223456", "2345", "us_west", "BlueTeam", "ProjectBanana", "2211s")
