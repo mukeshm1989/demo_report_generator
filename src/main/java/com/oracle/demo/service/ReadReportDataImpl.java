@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 // class to take inputs
-public class ReadInputImpl implements ReadInput{
+public class ReadReportDataImpl implements ReadReportData {
 
     @Override
     public String readInputFromFile() {
@@ -13,7 +13,8 @@ public class ReadInputImpl implements ReadInput{
         try {
             return Files.readString(Path.of("src/main/resources/input.txt"));
         } catch (IOException e) {
-            throw new CustomException(e.getMessage());
+            // we also create message properties file and message response body for custom message
+            throw new CustomException("File not found");
         }
     }
 }

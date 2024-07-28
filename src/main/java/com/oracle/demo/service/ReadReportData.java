@@ -1,6 +1,6 @@
 package com.oracle.demo.service;
 
-public interface ReadInput {
+public interface ReadReportData {
 
     String readInputFromFile();
 

@@ -16,9 +16,9 @@ public class DisplayReportImpl implements DisplayReport{
 
     public void printReportToConsole() {
         printUniqueCustomerCountByContractId(reportService.getUniqueCustomerCountByContractId());
-        printUniqueCustomerCountByGeozone(reportService.getUniqueCustomerCountByGeozone());
-        printAverageBuildDurationByGeozone(reportService.getAverageBuildDurationByGeozone());
-        printUniqueCustomersByGeozone(reportService.getUniqueCustomersByGeozone());
+        printUniqueCustomerCountByGeozone(reportService.getUniqueCustomerCountByGeoZone());
+        printAverageBuildDurationByGeozone(reportService.fetchAverageBuildDurationByGeoZone());
+        printUniqueCustomersByGeozone(reportService.getUniqueCustomersByGeoZone());
     }
 
     // public void writeToFile
