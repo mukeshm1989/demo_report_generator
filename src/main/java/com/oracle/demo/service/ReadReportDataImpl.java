@@ -13,7 +13,7 @@ public class ReadReportDataImpl implements ReadReportData {
         try {
             return Files.readString(Path.of("src/main/resources/input.txt"));
         } catch (IOException e) {
-            // we also create message properties file and message response body for custom message
+            // We also create message properties file and message response body for custom message
             throw new CustomException("File not found");
         }
     }
