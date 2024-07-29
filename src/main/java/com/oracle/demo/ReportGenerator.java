@@ -18,13 +18,13 @@ public class ReportGenerator {
 
         // main is used as orchestrator
 
-        ReadReportData readInput = new ReadReportDataImpl();
+        final ReadReportData readInput = new ReadReportDataImpl();
         final String inputData = readInput.readInputFromFile(PATH);
 
         final List<ReportData> dataList = ReportDataParser.parse(inputData, ReportData::getReportData);
         final ReportService reportService = new ReportServiceImpl(dataList);
 
-        DisplayReportImpl displayReport = new DisplayReportImpl(reportService);
+        final DisplayReportImpl displayReport = new DisplayReportImpl(reportService);
         displayReport.printReportToConsole();
 
     }
