@@ -22,7 +22,7 @@ public class ReportGenerator {
         final String inputData = readInput.readInputFromFile(PATH);
 
         final List<ReportData> dataList = ReportDataParser.parse(inputData, ReportData::getReportData);
-        ReportService reportService = new ReportServiceImpl(dataList);
+        final ReportService reportService = new ReportServiceImpl(dataList);
 
         DisplayReportImpl displayReport = new DisplayReportImpl(reportService);
         displayReport.printReportToConsole();

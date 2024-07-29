@@ -8,7 +8,7 @@ import java.nio.file.Path;
 public class ReadReportDataImpl implements ReadReportData {
 
     @Override
-    public String readInputFromFile(String path) {
+    public String readInputFromFile(final String path) {
         try {
             return Files.readString(Path.of(path));
         } catch (IOException e) {

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class ReportServiceImpl implements ReportService {
     private final List<ReportData> data;
 
-    public ReportServiceImpl(List<ReportData> data) {
+    public ReportServiceImpl(final List<ReportData> data) {
         this.data = data;
     }
 
@@ -41,7 +41,7 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public Map<String, Set<String>> getUniqueCustomersByGeoZone() {
         return data.stream().collect(Collectors.groupingBy(ReportData::geoZone,
-                Collectors.mapping(ReportData::customerId, Collectors.toSet())
+                 Collectors.mapping(ReportData::customerId, Collectors.toSet())
 
         ));
     }

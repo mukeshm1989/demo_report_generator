@@ -2,7 +2,7 @@ package com.oracle.demo.service;
 
 public interface ReadReportData {
 
-    String readInputFromFile(String path);
+    String readInputFromFile(final String path);
 
     // String readDataFromConsole();
 }

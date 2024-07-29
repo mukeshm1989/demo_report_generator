@@ -2,7 +2,7 @@ package com.oracle.demo.exception;
 
 public class CustomException  extends  RuntimeException {
 
-    public CustomException(String message)
+    public CustomException(final String message)
     {
         super(message);
     }

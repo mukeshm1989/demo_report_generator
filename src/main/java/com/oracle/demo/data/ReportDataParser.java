@@ -9,10 +9,10 @@ import static com.oracle.demo.utils.Constants.NEW_LINE_DELIMITER;
 // Class to parse data
 public class ReportDataParser {
     ReportDataParser(){}
-    public static <T> List<T> parse(String input, RecordMapper<T> recordMapper) {
+    public static <T> List<T> parse(final String input, final RecordMapper<T> recordMapper) {
 
-        List<T> records = new ArrayList<>();
-        String[] lines = input.split(NEW_LINE_DELIMITER);
+        final List<T> records = new ArrayList<>();
+        final String[] lines = input.split(NEW_LINE_DELIMITER);
         for (String line : lines) {
             String[] columns = line.split(COMMA_DELIMITER);
             if (columns.length > 0) {
